@@ -1,1 +1,10 @@
 requests
+streamlit
+google-genai
+google-cloud-secret-manager
+google-cloud-aiplatform
+google-auth
+google-api-core
+google-cloud
+google-cloud-discoveryengine
+google-cloud-storage
