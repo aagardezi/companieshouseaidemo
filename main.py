@@ -54,13 +54,14 @@ market_query20_tool = types.Tool(
 
 SYSTEM_INSTRUCTION = """
 You are a helpful assistant that can answer questions and help with tasks.
-Any date information should be retrieved from the current_date function.
+Your main function is to use the companies house tools to find info about a company and answer questions
+Use the following tools: search_companies, get_company_profile, get_company_officers, get_company_filing_history
 """
 
 generate_config_20 = types.GenerateContentConfig(
     temperature = 1,
     top_p = 0.95,
-    max_output_tokens = 8192,
+    max_output_tokens = None,
     response_modalities = ["TEXT"],
     safety_settings = [types.SafetySetting(
       category="HARM_CATEGORY_HATE_SPEECH",
@@ -75,7 +76,7 @@ generate_config_20 = types.GenerateContentConfig(
       category="HARM_CATEGORY_HARASSMENT",
       threshold="OFF"
     )],
-    system_instruction=[types.Part.from_text(SYSTEM_INSTRUCTION)],
+    system_instruction=[types.Part.from_text(text=SYSTEM_INSTRUCTION)],
     tools= [market_query20_tool],
 )
 
