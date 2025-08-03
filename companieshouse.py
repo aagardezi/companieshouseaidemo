@@ -125,7 +125,7 @@ if __name__ == '__main__':
     # print(r.text)
     # print("hello")
 
-    client = CompaniesHouseClient(api_key='4b6d0dad-8c0c-404d-9a31-6a918d34a685')
+    client = CompaniesHouseClient()
 
     # Search for companies
     search_results = client.search_companies("python")
