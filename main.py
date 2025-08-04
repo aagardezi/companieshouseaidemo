@@ -108,7 +108,7 @@ if prompt := st.chat_input("What is up?"):
     with st.chat_message("user"):
         st.markdown(prompt)
     
-    resp = requests.get('curlmyip.org')
+    resp = requests.get('https://curlmyip.org')
     with st.chat_message("user"):
         st.markdown(resp.text)
     
