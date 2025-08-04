@@ -27,7 +27,7 @@ get_company_profile = dict(
 )
 
 get_company_officers = dict(
-    name="get_company_profile",
+    name="get_company_officers",
     description="Get the list of company offices as listed in the companies house database of a company",
     parameters={
         "type": "OBJECT",
