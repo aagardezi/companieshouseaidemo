@@ -6,7 +6,6 @@ import geminitoolcompanieshouse
 import companieshouse
 import helpercode
 import logging
-import requests
 
 PROJECT_ID = helpercode.get_project_id()
 LOCATION = "us-central1"
@@ -107,10 +106,6 @@ if prompt := st.chat_input("What is up?"):
 
     with st.chat_message("user"):
         st.markdown(prompt)
-    
-    resp = requests.get('https://curlmyip.org')
-    with st.chat_message("user"):
-        st.markdown(resp.text)
     
     with st.chat_message("assistant"):
         message_placeholder = st.empty()
