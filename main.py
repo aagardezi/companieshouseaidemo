@@ -3,6 +3,7 @@ from google import genai
 from google.genai import types
 import gemini20functiongeneral
 import geminitoolcompanieshouse
+import companieshouse
 import helpercode
 import logging
 
@@ -124,8 +125,13 @@ if prompt := st.chat_input("What is up?"):
                     params[key] = value
 
                 function_name = response.function_call.name
-                function_call_result = helpercode.function_handler[function_name]()
-                api_requests_and_responses.append([function_name, params, function_call_result])
+                function_call_result = None
+                if function_name in helpercode.function_handler.keys():
+                    function_call_result = helpercode.function_handler[function_name]()
+                    api_requests_and_responses.append([function_name, params, function_call_result])
+                if function_name in companieshouse.function_handler.keys():
+                    function_call_result = companieshouse.function_handler[function_name](params)
+                    api_requests_and_responses.append([function_name, params, function_call_result])
                 st.session_state.aicontent.append(response)
                 st.session_state.aicontent.append(types.Part.from_function_response(
                             name=function_name,
