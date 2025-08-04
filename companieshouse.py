@@ -2,8 +2,11 @@ import requests
 from requests.auth import HTTPBasicAuth
 import os
 import base64
+from companieshouse import CompaniesHouseClient
 
-class CompaniesHouseClient:
+#Converted the companies hosue API into a pip instalable library. The code below is not needed but could be used to
+#understand how to access the API so leaving it here.
+class CompaniesHouseClient_local:
     """
     A client for interacting with the Companies House API.
     """
